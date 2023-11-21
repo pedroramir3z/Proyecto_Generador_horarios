@@ -189,5 +189,7 @@ El poco conocimiento sobre esta herramienta.
 ### BACKEND
 
 ### TESTING
+![tester_plan](https://github.com/pedroramir3z/Proyecto_Generador_horarios/assets/150998867/123dbb15-6a6b-4ea4-b743-396cc4b45e5d)
+
 
 ### CRONOGRAMA
