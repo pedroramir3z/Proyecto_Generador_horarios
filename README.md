@@ -112,15 +112,20 @@ Se han creado el diseño de las dos ventanas, la principal y ventana de agregar 
 Se estableció un tamaño fijo de 838x579 pixeles para la ventana por lo cual no se agregaron botones de maximizar ni minimizar, únicamente se tiene una barra superior en color verde y dentro de esta se encuentra un botón a la derecha que tiene un icono en 20x20 pixeles que hace la función de cerrar el programa.
 Se agregó una etiqueta “Asignador de Horarios” como título de la pagina principal debajo de este se agregaron dos botones, ambos en color verde y cada uno con su ícono como representación gráfica de “Agregar profesor” y “Generar Horario”. Se usaron dos barras horizontales como parte del diseño una en la parte superior y la otra en la parte inferior
 
+![](https://github.com/pedroramir3z/Proyecto_Generador_horarios/blob/master/imagenes/primeraventana.png)
 
 **Ventana 2 (Agregar Profesor):**
 En esta se estableció un tamaño fijo de 838x579 pixeles para la ventana por lo cual no se agregaron botones de maximizar ni minimizar, únicamente se tiene una barra superior en color verde y dentro de esta se encuentra un botón a la derecha que tiene un icono en 20x20 pixeles que hace la función de cerrar el programa.
 Se agregó una etiqueta “Asignador de Horarios” como título de la página principal, debajo otra etiqueta que indica el área para agregar a los profesores.
 Tres etiquetas de texto con los nombres de “Nombre del profesor”, “Horas que no tiene disponibles” y “Materias Asignadas”. Cada uno cuenta con un bloque de interacción de input del lado derecho. Se tiene un editor de texto input en color blanco para el nombre del profesor y para materia asignada, el único diferente es el de las horas, se agregaron dos bloques de edición de horario modo input para asegurar el ingreso de los datos en el formato requerido. Por ultimo, se agregó un botón verde con el texto guardar el cual tiene un icono como representación grafica de agregar profesor. El botón guardará los datos ingresados en las 4 casillas anteriores. 
 
+![](https://github.com/pedroramir3z/Proyecto_Generador_horarios/blob/master/imagenes/asigna.png)
+
 <p>
 Todo esto de hace de acuerdo con el diagrama de usuario y a las propuestas de diseño aceptadas por todo el equipo 3:
 </p>
+
+![](https://github.com/pedroramir3z/Proyecto_Generador_horarios/blob/master/imagenes/diagrama.jpg)
 
 ![](https://github.com/pedroramir3z/Proyecto_Generador_horarios/blob/master/imagenes/0f69ea0f-6f37-47ff-a967-7418a5c21d0b.jfif)
 ![](https://github.com/pedroramir3z/Proyecto_Generador_horarios/blob/master/imagenes/c4857c6c-7c38-47cf-97d2-773788f080a3.jfif)
