@@ -104,10 +104,28 @@ HORARIOS
 	01:00 pm - 02:55 pm
 	03:00 pm - 04:55 pm
 
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+Se han creado el diseño de las dos ventanas, la principal y ventana de agregar profesor ambas con sus bloques de herramienta e interacción. Se han realizado a través de la aplicación QT Designer, la cual se instala al escribir el comando pip install pqt5 tools, como parte de las herramientas que brinda PQT5.
+
+**Ventana 1 (Ventana Principal):** 
+Se estableció un tamaño fijo de 838x579 pixeles para la ventana por lo cual no se agregaron botones de maximizar ni minimizar, únicamente se tiene una barra superior en color verde y dentro de esta se encuentra un botón a la derecha que tiene un icono en 20x20 pixeles que hace la función de cerrar el programa.
+Se agregó una etiqueta “Asignador de Horarios” como título de la pagina principal debajo de este se agregaron dos botones, ambos en color verde y cada uno con su ícono como representación gráfica de “Agregar profesor” y “Generar Horario”. Se usaron dos barras horizontales como parte del diseño una en la parte superior y la otra en la parte inferior
+
+
+**Ventana 2 (Agregar Profesor):**
+En esta se estableció un tamaño fijo de 838x579 pixeles para la ventana por lo cual no se agregaron botones de maximizar ni minimizar, únicamente se tiene una barra superior en color verde y dentro de esta se encuentra un botón a la derecha que tiene un icono en 20x20 pixeles que hace la función de cerrar el programa.
+Se agregó una etiqueta “Asignador de Horarios” como título de la página principal, debajo otra etiqueta que indica el área para agregar a los profesores.
+Tres etiquetas de texto con los nombres de “Nombre del profesor”, “Horas que no tiene disponibles” y “Materias Asignadas”. Cada uno cuenta con un bloque de interacción de input del lado derecho. Se tiene un editor de texto input en color blanco para el nombre del profesor y para materia asignada, el único diferente es el de las horas, se agregaron dos bloques de edición de horario modo input para asegurar el ingreso de los datos en el formato requerido. Por ultimo, se agregó un botón verde con el texto guardar el cual tiene un icono como representación grafica de agregar profesor. El botón guardará los datos ingresados en las 4 casillas anteriores. 
+
+<p>
+Todo esto de hace de acuerdo con el diagrama de usuario y a las propuestas de diseño aceptadas por todo el equipo 3:
+</p>
 
 ![](https://github.com/pedroramir3z/Proyecto_Generador_horarios/blob/master/imagenes/0f69ea0f-6f37-47ff-a967-7418a5c21d0b.jfif)
 ![](https://github.com/pedroramir3z/Proyecto_Generador_horarios/blob/master/imagenes/c4857c6c-7c38-47cf-97d2-773788f080a3.jfif)
 ![](https://github.com/pedroramir3z/Proyecto_Generador_horarios/blob/master/imagenes/cf1ec78d-da56-4350-91d4-f2f3c433294d.jfif)
+
 
 La idea del como se verá surgió con esas listas, para tener en cuenta que se dividirán en dos secciones, las de ICOM y las de INFO teniendo 43 y 20 materias cada sección respectivamente. Nos percatamos que sería más sencillo para el usuario tener en automatico una lista desplegable de las materias para una mayor facilidad de asignación.
 Será una lista con dos opciones:
@@ -187,6 +205,90 @@ Nuestra primer dificultad fué a la hora de buscar en donde la reslizaríamos, e
 El poco conocimiento sobre esta herramienta.
 
 ### BACKEND
+
+(palabras de Cristian)
+<p>
+Realice cambios en la disponibilidad de profesor y aula, ya que me causaba mucho conflictos a la hora de eliminar y agregar, ya que esto lo necesito para el algoritmo backtraking, asi que cambie con horarios prestablecidos. Y aun asi con estos horarios prestablecidos tuve muchos de los mismos problemas y me percate que el problema que puedo que me tardara mucho mas de lo que quería fue en la clase Aula, descubrí que al eliminar un campo de disponibilidad, se afectaban todas las aulas. La raíz del problema estaba en el uso de constantes, que resolví declarándolas dentro de la clase.
+</p>
+<p>
+Para darme cuenta de esto hice muchas corridas de escritorio, porque realmente no tenía por qué hacer eso el programa, pregunté hasta chatgpt sobre el aula y dice que estaba bien, que no encontraba problemas en la implementación de aula, pero con las corridas de escritorio me di cuenta de todo lo que se hacia mal, por que si, como eso no tendría que pasar cambie mucho del código pensando que era eso. Pero el gran problema como mencionado fue las constantes declaradas.
+</p>
+**Ejemplo de corrida de escirtorio: **
+
+**Inicio**
+
+	Curso actual: Matematicas
+	Profe actual: Profesor A
+	Entro 101
+	Asignando LUNESxMIERCOELES-9AM-A-10:55AM en 101
+	Asignación actual: ('Matematicas', 'Profesor A', 101, 'LUNESxMIERCOELES-9AM-A-10:55AM')
+	['LUNESxMIERCOELES-9AM-A-10:55AM', 'LUNESxMIERCOELES-11-A-12:55PM', 'LUNESxMIERCOELES-1-A-2:55PM', 'LUNESxMIERCOELES-3-A-4:55PM', 'MARTESxJUEVES-9AM-A-10:55AM', 'MARTESxJUEVES-11-A-12:55PM', 'MARTESxJUEVES-1-A-2:55PM', 'MARTESxJUEVES-3-A-4:55PM', 'VIERNES-9-A-1', 'VIERNES-1-A-5']
+	
+	Curso actual: Algebra
+	Profe actual: Profesor A
+	Entro 101
+	Asignando LUNESxMIERCOELES-11-A-12:55PM en 101
+	Asignación actual: ('Algebra', 'Profesor A', 101, 'LUNESxMIERCOELES-11-A-12:55PM')
+	['LUNESxMIERCOELES-11-A-12:55PM', 'LUNESxMIERCOELES-1-A-2:55PM', 'LUNESxMIERCOELES-3-A-4:55PM', 'MARTESxJUEVES-9AM-A-10:55AM', 'MARTESxJUEVES-11-A-12:55PM', 'MARTESxJUEVES-1-A-2:55PM', 'MARTESxJUEVES-3-A-4:55PM', 'VIERNES-9-A-1', 'VIERNES-1-A-5']
+
+	Curso actual: Matematicas
+	!!!!!!!!!!!!!!!!
+	Profe actual: Profesor B
+	Entro 102
+	Asignando LUNESxMIERCOELES-11-A-12:55PM en 102
+	Asignación actual: ('Matematicas', 'Profesor B', 102, 'LUNESxMIERCOELES-11-A-12:55PM')
+	['LUNESxMIERCOELES-9AM-A-10:55AM', 'LUNESxMIERCOELES-11-A-12:55PM', 'LUNESxMIERCOELES-1-A-2:55PM', 'LUNESxMIERCOELES-3-A-4:55PM', 'MARTESxJUEVES-9AM-A-10:55AM', 'MARTESxJUEVES-11-A-12:55PM', 'MARTESxJUEVES-1-A-2:55PM', 'MARTESxJUEVES-3-A-4:55PM', 'VIERNES-9-A-1', 'VIERNES-1-A-5']
+
+	Curso actual: Algebra
+	!!!!!!!!!!!!!!!!
+	Profe actual: Profesor B
+	Entro 102
+	Asignando LUNESxMIERCOELES-9AM-A-10:55AM en 102
+	Asignación actual: ('Algebra', 'Profesor B', 102, 'LUNESxMIERCOELES-9AM-A-10:55AM')
+	['LUNESxMIERCOELES-9AM-A-10:55AM', 'LUNESxMIERCOELES-1-A-2:55PM', 'LUNESxMIERCOELES-3-A-4:55PM', 'MARTESxJUEVES-9AM-A-10:55AM', 'MARTESxJUEVES-11-A-12:55PM', 'MARTESxJUEVES-1-A-2:55PM', 'MARTESxJUEVES-3-A-4:55PM', 'VIERNES-9-A-1', 'VIERNES-1-A-5']
+
+	Curso actual: Matematicas
+	!!!!!!!!!!!!!!!!
+	!!!!!!!!!!!!!!!!
+	Profe actual: Profesor C
+	Entro 101
+	Asignando VIERNES-1-A-5 en 101
+	Asignación actual: ('Matematicas', 'Profesor C', 101, 'VIERNES-1-A-5')
+	['LUNESxMIERCOELES-1-A-2:55PM', 'LUNESxMIERCOELES-3-A-4:55PM', 'MARTESxJUEVES-9AM-A-10:55AM', 'MARTESxJUEVES-11-A-12:55PM', 'MARTESxJUEVES-1-A-2:55PM', 'MARTESxJUEVES-3-A-4:55PM', 'VIERNES-9-A-1', 'VIERNES-1-A-5']
+
+	Curso actual: Algebra
+	!!!!!!!!!!!!!!!!
+	!!!!!!!!!!!!!!!!
+	Profe actual: Profesor C
+	Entro 104
+	Asignando LUNESxMIERCOELES-11-A-12:55PM en 104
+	Asignación actual: ('Algebra', 'Profesor C', 104, 'LUNESxMIERCOELES-11-A-12:55PM')
+	['LUNESxMIERCOELES-9AM-A-10:55AM', 'LUNESxMIERCOELES-11-A-12:55PM', 'LUNESxMIERCOELES-1-A-2:55PM', 'LUNESxMIERCOELES-3-A-4:55PM', 'MARTESxJUEVES-9AM-A-10:55AM', 'MARTESxJUEVES-11-A-12:55PM', 'MARTESxJUEVES-1-A-2:55PM', 'MARTESxJUEVES-3-A-4:55PM', 'VIERNES-9-A-1', 'VIERNES-1-A-5']
+	¡Solución encontrada!
+	¡Solución encontrada!
+	¡Solución encontrada!
+	¡Solución encontrada!
+	¡Solución encontrada!
+	¡Solución encontrada!
+	¡Solución encontrada!
+	('Matematicas', 'Profesor A', 101, 'LUNESxMIERCOELES-9AM-A-10:55AM')
+	('Algebra', 'Profesor A', 101, 'LUNESxMIERCOELES-11-A-12:55PM')
+	('Matematicas', 'Profesor B', 102, 'LUNESxMIERCOELES-11-A-12:55PM')
+	('Algebra', 'Profesor B', 102, 'LUNESxMIERCOELES-9AM-A-10:55AM')
+	('Matematicas', 'Profesor C', 101, 'VIERNES-1-A-5')
+	('Algebra', 'Profesor C', 104, 'LUNESxMIERCOELES-11-A-12:55PM')
+ 
+**Solo usando estos datos**
+
+	profesor1 = Profesor(1, "Profesor A", ["Matematicas","Algebra"], [LM9a11,LM11a1])
+	profesor2 = Profesor(2, "Profesor B", [ "Algebra","Matematicas"], [LM11a1,LM9a11])
+	profesor3 = Profesor(3, "Profesor C", [ "Matematicas","Algebra"], [LM11a1,V1a5])
+	aula1 = Aula(101, 30, ["Proyector"])
+	aula2 = Aula(102, 30, ["Proyector"])
+	aula3 = Aula(103, 30, ["Pintaroon"])
+	aula3 = Aula(104, 30, ["Proyector"])
+	matematicas = Curso(1, "Matematicas", 4, ["Proyector"])
+	algebra = Curso(2, "Algebra", 4, ["Proyector"])
 
 ### TESTING
 ![tester_plan](https://github.com/pedroramir3z/Proyecto_Generador_horarios/assets/150998867/123dbb15-6a6b-4ea4-b743-396cc4b45e5d)
