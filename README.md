@@ -6,7 +6,7 @@ Se debe de optimizar la asignación de cursos y cumplir con las restricciones da
 
 ##### Integrantes
 
-- Paulina Amezcua García-**Generalista**
+- Paulina Amezcua García-**Generalista y backend2**
 - Guillermo Gómez Castañeda-**Frontend**
 - Christian Francisco Rojas Espinoza-**Backend**
 - Pedro Ángel Ramírez Martínez-**Tester**
@@ -294,6 +294,23 @@ Para darme cuenta de esto hice muchas corridas de escritorio, porque realmente n
 	aula3 = Aula(104, 30, ["Proyector"])
 	matematicas = Curso(1, "Matematicas", 4, ["Proyector"])
 	algebra = Curso(2, "Algebra", 4, ["Proyector"])
+
+### BACKEND 2
+
+El profesor nos dió la idea de que fueran dos secciones de backend, uno creado por mi compañero Christian y el otro directamente mío, pero con un método diferente al primero, el cual sería con el método de fuerza bruta. Así al final el tester vería cual es el más optimo a implementar.
+Busqué información sobre como es el funcionamiento de los algoritmos de fuerza bruta y conocí las diferencias de estas a las de los algoritmos de backtracking, aprendí que la fuerza bruta en los algoritmos implica probar todas las combinaciones posibles sin considerar mucho los problemas que podrían intervenir después, en cambio, el backtracking realiza una búsqueda más inteligente, deteniéndose en soluciones parciales que no pueden llevar a una solución válida y retrocediendo para probar otras opciones. Además, para ser más precisos en cuánto al código, el de fuerza bruta suele llevarse a cabo con bucles anidados mientras que el otro utiliza búsquedas recursivas.  El backtracking es más elaborado, pero más eficiente.
+Hice un texto simple del cómo funcionaría el programa para darme la clara idea de cómo inicializarlo
+Lo empezaría como la mayoría de los códigos que me han agradado realizar, iniciando con un menú, seguramente durante el proceso cambiaré algunos datos, cosas o haré movimientos extras además de que le agregaré la parte de los bucles.
+
+Avancé con gran desarrollo del código.
+
+Después de esto, lo dejé un poco de lado para enfocarme en una de las cosas que principalmente hacían falta, el cual es el uso de archivos, me dediqué a realizar los archivos con las especificaciones de cada uno, en este caso serían los 4 archivos, el primero con el horario justamente acomodado de 9:00 a 4:55 con horarios de 2 en 2 como lo habíamos especificado al principio, se supone que el programa será capaz de lanzar una lista desplegable de estos horarios ya que es el contenido del archivo, el segundo archivo será con los días de lunes a viernes al igual que el anterior siendo una lista desplegable, el tercero con las carreras que se impartirán con la asignación de su materia, con su respectiva respuesta sobre cuales necesitan computadora, llegando finalmente al cuarto archivo el cuál queda definido con la información interna de las aulas y cuales tienen computadora.
+Al final cambié de idea, y para facilitar su creación aún más, implementé un archivo extra, el cual es básicamente el de materias, pero serían dos, un archivo únicamente para INFO y uno específicamente con las materias de ICOM.
+
+Pude implementar la sección de eliminar, modificando simplemente la función de generar tabla de horarios y agregando la opción de eliminar. Al principio creí que sería más complicado, pero pude realizar de manera efectiva esta tarea. Fue agregando esas líneas de código en las cuales especificamos sobre evaluar cual es la línea que se desea eliminar y descartando los errores que se puedan ingresar.
+
+
+ 
 
 ### TESTING
 ![tester_plan](https://github.com/pedroramir3z/Proyecto_Generador_horarios/assets/150998867/123dbb15-6a6b-4ea4-b743-396cc4b45e5d)
