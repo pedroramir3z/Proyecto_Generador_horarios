@@ -1,3 +1,5 @@
+
+
 import tkinter as tk
 from tkinter import ttk
 
@@ -19,18 +21,17 @@ class VentanaHorarios:
 
         # Ajustar las columnas para que se ajusten al contenido
         for col in ("Curso", "Profesor", "Aula", "Horario"):
-            self.tree.column(col, anchor="center", width=100)
-            self.tree.heading(col, anchor="center")
+            # Obtener la longitud máxima de los elementos en la columna
+            max_width = max([len(str(self.tree.item(item, 'values')[self.tree['columns'].index(col)])) for item in self.tree.get_children()])
+            
+            # Establecer el ancho de la columna
+            self.tree.column(col, width=max_width * 10)  # Puedes ajustar el factor multiplicador según tus necesidades
 
         # Agregar el Treeview a la ventana
         self.tree.pack(padx=10, pady=10)
 
-def main():
+def interfaz(horarios=[]):
     # Lista de horarios (reemplaza esto con tu lista de horarios)
-    horarios = [
-        ('FUNDAMENTOS DE LA PROGRAMACION', 'Claudia Sánchez Rodríguez', 101, 'MARTESxJUEVES-11AM-A-12:55PM'),
-        # Agrega más horarios si es necesario
-    ]
 
     # Crear la ventana principal
     root = tk.Tk()
@@ -41,7 +42,3 @@ def main():
     # Iniciar el bucle principal
     root.mainloop()
 
-if __name__ == "__main__":
-    main()
-
-main();

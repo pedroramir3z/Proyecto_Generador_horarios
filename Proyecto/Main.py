@@ -4,6 +4,7 @@ from aula import Aula
 from curso import Curso
 from planificador_horarios import PlanificadorHorarios
 
+from forms.form_master import MasterPanel
 
 # Definición de horarios 
 LM9a11 = "LUNESxMIERCOLES-9AM-A-10:55AM"
@@ -67,9 +68,12 @@ planificador = PlanificadorHorarios(profesores, aulas, cursosFinales)
 # Ejecutar el algoritmo de asignación de horarios
 planificador.asignar_horarios()
 
-
-
+horarioos=planificador.horarios_asignados
 
 # Mostrar los horarios asignados
 for asignacion in planificador.horarios_asignados:
     print(asignacion)
+
+
+
+MasterPanel(horarioos)
