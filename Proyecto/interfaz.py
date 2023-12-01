@@ -1,4 +1,4 @@
-
+#Esto fue unas de las pruebas que hice para ver como por lo menos mostrar algo a la hora de asigar los horarios a los profesores
 
 import tkinter as tk
 from tkinter import ttk
